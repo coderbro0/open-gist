@@ -123,4 +123,4 @@ All files will be uploaded using `...` to simulate folder paths.
 
 ## 📄 License
 
-MIT © [coderbro](https://github.com/coderbr0)
+Apache License 2.0 © [coderbro](https://github.com/coderbr0)
