@@ -112,7 +112,7 @@ All files will be uploaded using `...` to simulate folder paths.
 ---
 
 <p>
-  <img src="logo.png" alt="Open Gist Logo" width="80" style="border-radius: 50%; float: left; margin-right: 10px;" />
+  <img src="logo.png" alt="Open Gist Logo" width="80" style="border-radius: 50% !important; float: left !important; margin-right: 10px !important;" />
 </p>
 
 ## 👨‍💻 Maintained by [@coderbro](https://github.com/coderbro0)
