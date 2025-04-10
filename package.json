@@ -1,0 +1,88 @@
+{
+  "name": "open-gist",
+  "displayName": "Open Gist Folder by ID",
+  "description": "Open, create, and manage GitHub Gists as folders in VS Code. Add or remove files, upload full folders, and simulate folder structures using flattened filenames.",
+  "icon": "icon.png",
+  "version": "0.0.1",
+  "publisher": "coderbro",
+  "type": "commonjs",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Other"],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:open-gist.openGistById",
+    "onCommand:open-gist.createGist",
+    "onCommand:open-gist.addFileToGist",
+    "onCommand:open-gist.addFolderToGist",
+    "onCommand:open-gist.deleteGist",
+    "onCommand:open-gist.removeFileFromGist",
+     "onCommand:open-gist.setGitHubToken",
+    "onCommand:open-gist.clearGitHubToken"
+  ],
+  "contributes": {
+  "commands": [
+    {
+      "command": "open-gist.openGistById",
+      "title": "coderbro:Open Gist by ID"
+    },
+    {
+      "command": "open-gist.createGist",
+      "title": "coderbro:Create New Gist"
+    },
+    {
+      "command": "open-gist.addFileToGist",
+      "title": "coderbro:Add File to Gist"
+    },
+    {
+      "command": "open-gist.addFolderToGist",
+      "title": "coderbro:Upload Folder to Gist"
+    },
+    {
+      "command": "open-gist.deleteGist",
+      "title": "coderbro:Delete Gist"
+    },
+    {
+      "command": "open-gist.removeFileFromGist",
+      "title": "coderbro:Remove File from Gist"
+    },
+    {
+      "command": "open-gist.setGitHubToken",
+      "title": "coderbro:Set GitHub Token"
+    },
+    {
+      "command": "open-gist.clearGitHubToken",
+      "title": "coderbro:Clear GitHub Token"
+    }
+  ]
+},
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.cjs",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.cjs --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.cjs --production",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.30",
+    "@types/node-fetch": "^2.6.12",
+    "@types/vscode": "^1.70.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.25.2",
+    "eslint": "^9.24.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.3"
+  }
+}
