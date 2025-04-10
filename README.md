@@ -2,7 +2,11 @@
 
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/coderbro.open-gist.svg?label=Open%20in%20VS%20Code&logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/coderbro.open-gist.svg)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)
+<<<<<<< HEAD
 [![GitHub](https://img.shields.io/badge/@coderbro0-%20Follow-blue?logo=github)](https://github.com/coderbr0)
+=======
+[![GitHub](https://img.shields.io/badge/@coderbro-%20Follow-blue?logo=github)](https://github.com/coderbro0)
+>>>>>>> 2c2b328 (Update README with latest changes)
 
 ---
 
@@ -114,7 +118,7 @@ All files will be uploaded using `...` to simulate folder paths.
   <img src="https://raw.githubusercontent.com/coderbro0/open-gist/main/logo.png" alt="coderbro logo" width="120" style="border-radius: 20px;">
 </p>
 
-## 👨‍💻 Maintained by [@coderbro](https://github.com/coderbr0)
+## 👨‍💻 Maintained by [@coderbro](https://github.com/coderbro0)
 
 - 🧠 Love the tool? Star it on GitHub!  
 - 💬 Issues, suggestions, or feature requests welcome.
@@ -123,4 +127,4 @@ All files will be uploaded using `...` to simulate folder paths.
 
 ## 📄 License
 
-Apache License 2.0 © [coderbro](https://github.com/coderbr0)
+Apache License 2.0 © [coderbro](https://github.com/coderbro0)
