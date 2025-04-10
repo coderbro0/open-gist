@@ -111,8 +111,8 @@ All files will be uploaded using `...` to simulate folder paths.
 
 ---
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/coderbro0/open-gist/main/logo.png" alt="coderbro logo" width="120" style="border-radius: 20px;">
+<p>
+  <img src="logo.png" alt="Open Gist Logo" width="80" style="border-radius: 50%; float: left; margin-right: 10px;" />
 </p>
 
 ## 👨‍💻 Maintained by [@coderbro](https://github.com/coderbro0)
