@@ -2,11 +2,8 @@
 
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/coderbro.open-gist.svg?label=Open%20in%20VS%20Code&logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/coderbro.open-gist.svg)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)
-<<<<<<< HEAD
-[![GitHub](https://img.shields.io/badge/@coderbro0-%20Follow-blue?logo=github)](https://github.com/coderbr0)
-=======
 [![GitHub](https://img.shields.io/badge/@coderbro-%20Follow-blue?logo=github)](https://github.com/coderbro0)
->>>>>>> 2c2b328 (Update README with latest changes)
+
 
 ---
 
