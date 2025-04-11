@@ -190,3 +190,27 @@ Let OpenAI instantly summarize any file’s contents.
 ## 📄 License
 
 Apache License 2.0 © [coderbro](https://github.com/coderbro0)
+
+---
+
+## 📌 Tags & Topics
+
+[![](https://img.shields.io/badge/Gist-Manager-blue?style=flat-square)](https://github.com/topics/gist)  
+[![](https://img.shields.io/badge/GitHub-Integration-lightgrey?style=flat-square)](https://github.com/topics/github)  
+[![](https://img.shields.io/badge/VS%20Code-Extension-blueviolet?style=flat-square)](https://github.com/topics/vscode-extension)  
+[![](https://img.shields.io/badge/Auto--Sync-enabled-success?style=flat-square)](https://github.com/topics/auto-sync)  
+[![](https://img.shields.io/badge/AI--Summarizer-OpenAI-green?style=flat-square)](https://github.com/topics/openai)  
+[![](https://img.shields.io/badge/Cloud%20Snippets-Gist%20Upload-orange?style=flat-square)](https://github.com/topics/code-snippets)  
+[![](https://img.shields.io/badge/Explorer-Sidebar%20View-yellow?style=flat-square)](https://github.com/topics/gist-explorer)  
+[![](https://img.shields.io/badge/Code--Sharing-fastlight?style=flat-square)](https://github.com/topics/code-sharing)  
+[![](https://img.shields.io/badge/DevTools-Powered%20by%20VS%20Code-informational?style=flat-square)](https://github.com/topics/developer-tools)  
+[![](https://img.shields.io/badge/Open%20Gist-coderbro-success?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)
+
+---
+
+## 🧩 Related Tags (Plain)
+
+`#gist` `#github` `#gist-explorer` `#vscode-extension` `#auto-sync`  
+`#openai` `#code-summary` `#cloud-snippets` `#code-sharing` `#developer-tools`  
+`#open-gist` `#code-manager` `#ai-powered` `#vscode-gist` `#gist-manager`  
+`#gist-sync` `#upload-to-gist` `#gist-folder` `#file-sync` `#vscode-integrations`
