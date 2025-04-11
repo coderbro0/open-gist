@@ -3,7 +3,7 @@
   "displayName": "Open Gist Folder by ID",
   "description": "Open, create, and manage GitHub Gists as folders in VS Code. Add or remove files, upload full folders, and simulate folder structures using flattened filenames.",
   "icon": "icon.png",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "coderbro",
   "type": "commonjs",
   "repository": {
@@ -27,43 +27,76 @@
     "onCommand:open-gist.deleteGist",
     "onCommand:open-gist.removeFileFromGist",
     "onCommand:open-gist.setGitHubToken",
-    "onCommand:open-gist.clearGitHubToken"
+    "onCommand:open-gist.clearGitHubToken",
+    "onCommand:open-gist.summarizeGist",
+    "onCommand:open-gist.exploreGists",
+    "onCommand:open-gist.toggleAutoSync"
   ],
   "contributes": {
     "commands": [
       {
         "command": "open-gist.openGistById",
-        "title": "coderbro:Open Gist by ID"
+        "title": "coderbro: Open Gist by ID"
       },
       {
         "command": "open-gist.createGist",
-        "title": "coderbro:Create New Gist"
+        "title": "coderbro: Create New Gist"
       },
       {
         "command": "open-gist.addFileToGist",
-        "title": "coderbro:Add File to Gist"
+        "title": "coderbro: Add File to Gist"
       },
       {
         "command": "open-gist.addFolderToGist",
-        "title": "coderbro:Upload Folder to Gist"
+        "title": "coderbro: Upload Folder to Gist"
       },
       {
         "command": "open-gist.deleteGist",
-        "title": "coderbro:Delete Gist"
+        "title": "coderbro: Delete Gist"
       },
       {
         "command": "open-gist.removeFileFromGist",
-        "title": "coderbro:Remove File from Gist"
+        "title": "coderbro: Remove File from Gist"
       },
       {
         "command": "open-gist.setGitHubToken",
-        "title": "coderbro:Set GitHub Token"
+        "title": "coderbro: Set GitHub Token"
       },
       {
         "command": "open-gist.clearGitHubToken",
-        "title": "coderbro:Clear GitHub Token"
+        "title": "coderbro: Clear GitHub Token"
+      },
+      {
+        "command": "open-gist.summarizeGist",
+        "title": "coderbro: Summarize This Gist"
+      },
+      {
+        "command": "open-gist.exploreGists",
+        "title": "coderbro: Open Gist Explorer"
+      },
+      {
+        "command": "open-gist.toggleAutoSync",
+        "title": "coderbro: Toggle Auto Gist Sync"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "gistExplorerContainer",
+          "title": "Gist Explorer",
+          "icon": "media/gist.png"
+        }
+      ]
+    },
+    "views": {
+      "gistExplorerContainer": [
+        {
+          "id": "gistExplorerView",
+          "name": "Gists",
+          "icon": "media/gist.png"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

@@ -2,7 +2,9 @@ import * as vscode from 'vscode';
 import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs/promises';
-
+import { registerGistExplorer } from './explorerView'; // ✅ export must match
+import { summarizeActiveFile } from './aiSummarizer';
+import { registerAutoSync } from './gistSync'; // ✅ correct name
 const GITHUB_API = 'https://api.github.com';
 
 // --- Token Helpers ---
@@ -52,17 +54,38 @@ async function validateGitHubToken(token: string): Promise<string | null> {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+  // 🧠 AI Summarizer
   context.subscriptions.push(
+    vscode.commands.registerCommand('open-gist.summarizeGist', () => summarizeActiveFile(context)),
+
+    // Token commands
+    vscode.commands.registerCommand('open-gist.setGitHubToken', () => setGitHubToken(context)),
+    vscode.commands.registerCommand('open-gist.clearGitHubToken', () => clearGitHubToken(context)),
+
+    // Gist file/folder operations
     vscode.commands.registerCommand('open-gist.openGistById', () => openGistById(context)),
     vscode.commands.registerCommand('open-gist.createGist', () => createGist(context)),
     vscode.commands.registerCommand('open-gist.addFileToGist', () => addFileToGist(context)),
     vscode.commands.registerCommand('open-gist.addFolderToGist', () => addFolderToGist(context)),
     vscode.commands.registerCommand('open-gist.deleteGist', () => deleteGist(context)),
     vscode.commands.registerCommand('open-gist.removeFileFromGist', () => removeFileFromGist(context)),
-    vscode.commands.registerCommand('open-gist.setGitHubToken', () => setGitHubToken(context)),
-    vscode.commands.registerCommand('open-gist.clearGitHubToken', () => clearGitHubToken(context))
+
+    // 🧭 Fix: Register exploreGists command to open Gist Explorer
+    vscode.commands.registerCommand('open-gist.exploreGists', () => {
+      vscode.commands.executeCommand('workbench.view.extension.gistExplorerContainer');
+    }),
+
+    // 🟢 Toggle Auto-Sync command
+    vscode.commands.registerCommand('open-gist.toggleAutoSync', () => {
+      vscode.commands.executeCommand('workbench.action.openSettings', 'open-gist.autoSync');
+    })
   );
+
+  // 📂 Gist Sidebar View and AutoSync
+  registerGistExplorer(context);
+  registerAutoSync(context);
 }
+
 
 async function openGistById(context: vscode.ExtensionContext) {
   const gistId = await vscode.window.showInputBox({ prompt: 'Enter GitHub Gist ID' });
