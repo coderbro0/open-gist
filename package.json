@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/coderbro0/open-gist#readme",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.70.0"
   },
   "categories": ["Other"],
   "main": "./dist/extension.js",
