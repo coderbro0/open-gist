@@ -118,15 +118,36 @@ To remove it:
 
 ---
 
-  ### 🤖 AI Summarizer (OpenAI & Gemini)
+ ### 🤖 AI Summarizer (OpenAI & Gemini)
 
-- Run: `coderbro: Summarize Gist with AI` 
-- Selects provider based on setting `open-gist.aiProvider` (openai or gemini)  
-- You can optionally set:
-  - `open-gist.openaiApiKey`
-  - `open-gist.geminiApiKey`
+- Run: `coderbro: Summarize Gist with AI`  
+- Select your AI provider (OpenAI or Gemini)  
+- The extension uses these optional settings:
+  - `open-gist.aiProvider` (default: `openai`)
+  - `open-gist.openaiApiKey` (OpenAI users)
+  - `open-gist.geminiApiKey` (Gemini users)
 
-💡 For privacy and security, your API keys are only used during the current session — they are never saved to disk.
+💡 Your API key is never saved to disk. For security, it’s used only in memory for the session.
+
+---
+
+### 🔐 How to Get Your API Key
+
+#### 🧠 OpenAI
+
+1. Visit: [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)  
+2. Log in with your OpenAI account  
+3. Click “Create new secret key”  
+4. Copy the key (starts with `sk-...`) and paste it when prompted in VS Code
+
+#### 🪄 Gemini (Google AI Studio)
+
+1. Visit: [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)  
+2. Log in with your Google account  
+3. Click “Get API key”  
+4. Copy the key (starts with `AIza...`) and paste it when prompted in VS Code
+
+🛡️ For privacy and security, your API keys are only used during the current session — they are never saved to disk.
 
 ---
 
