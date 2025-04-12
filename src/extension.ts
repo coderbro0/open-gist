@@ -2,9 +2,17 @@ import * as vscode from 'vscode';
 import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs/promises';
-import { registerGistExplorer } from './explorerView'; // ✅ export must match
+
+import { registerGistExplorer } from './explorerView';
 import { summarizeActiveFile } from './aiSummarizer';
-import { registerAutoSync } from './gistSync'; // ✅ correct name
+import { registerAutoSync } from './gistSync';
+import { openScratchNote } from './scratchNotes';
+import { pasteImageIntoGist } from './imagePaster';
+import { launchPlayground } from './playground';
+import { forkCurrentGist } from './forkGist';
+import { starUnstarCurrentGist } from './starGist';
+import { followGitHubUser } from './followUserGists';
+
 const GITHUB_API = 'https://api.github.com';
 
 // --- Token Helpers ---
@@ -46,7 +54,7 @@ async function validateGitHubToken(token: string): Promise<string | null> {
     });
     if (!res.ok) {return null;}
 
-    const user = await res.json() as { login?: string }; // 👈 Cast type
+    const user = await res.json() as { login?: string };
     return user.login ?? null;
   } catch {
     return null;
@@ -54,34 +62,36 @@ async function validateGitHubToken(token: string): Promise<string | null> {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  // 🧠 AI Summarizer
+  // Register commands
   context.subscriptions.push(
     vscode.commands.registerCommand('open-gist.summarizeGist', () => summarizeActiveFile(context)),
-
-    // Token commands
     vscode.commands.registerCommand('open-gist.setGitHubToken', () => setGitHubToken(context)),
     vscode.commands.registerCommand('open-gist.clearGitHubToken', () => clearGitHubToken(context)),
-
-    // Gist file/folder operations
     vscode.commands.registerCommand('open-gist.openGistById', () => openGistById(context)),
     vscode.commands.registerCommand('open-gist.createGist', () => createGist(context)),
     vscode.commands.registerCommand('open-gist.addFileToGist', () => addFileToGist(context)),
     vscode.commands.registerCommand('open-gist.addFolderToGist', () => addFolderToGist(context)),
     vscode.commands.registerCommand('open-gist.deleteGist', () => deleteGist(context)),
     vscode.commands.registerCommand('open-gist.removeFileFromGist', () => removeFileFromGist(context)),
-
-    // 🧭 Fix: Register exploreGists command to open Gist Explorer
     vscode.commands.registerCommand('open-gist.exploreGists', () => {
       vscode.commands.executeCommand('workbench.view.extension.gistExplorerContainer');
     }),
+    vscode.commands.registerCommand('open-gist.toggleAutoSync', async () => {
+      const config = vscode.workspace.getConfiguration();
+      const current = config.get<boolean>('open-gist.autoSync', false);
+      await config.update('open-gist.autoSync', !current, vscode.ConfigurationTarget.Global);
+      vscode.window.showInformationMessage(`🔁 Auto Gist Sync ${!current ? 'enabled' : 'disabled'}`);
+    }),
 
-    // 🟢 Toggle Auto-Sync command
-    vscode.commands.registerCommand('open-gist.toggleAutoSync', () => {
-      vscode.commands.executeCommand('workbench.action.openSettings', 'open-gist.autoSync');
-    })
+    // New feature commands
+    vscode.commands.registerCommand('open-gist.openScratchNote', () => openScratchNote(context)),
+    vscode.commands.registerCommand('open-gist.pasteImageToGist', () => pasteImageIntoGist(context)),
+    vscode.commands.registerCommand('open-gist.launchPlayground', () => launchPlayground(context)),
+    vscode.commands.registerCommand('open-gist.forkCurrentGist', () => forkCurrentGist(context)),
+    vscode.commands.registerCommand('open-gist.starUnstarCurrentGist', () => starUnstarCurrentGist(context)),
+    vscode.commands.registerCommand('open-gist.followGitHubUser', () => followGitHubUser(context))
   );
 
-  // 📂 Gist Sidebar View and AutoSync
   registerGistExplorer(context);
   registerAutoSync(context);
 }
