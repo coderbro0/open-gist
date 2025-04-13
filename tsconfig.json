@@ -1,1 +1,26 @@
-{ "compilerOptions": { "target": "ES2022", "module": "CommonJS", "lib": ["ES2022", "DOM"], "moduleResolution": "node", "outDir": "dist", "rootDir": "src", "sourceMap": true, "strict": true, "esModuleInterop": true, "allowSyntheticDefaultImports": true, "resolveJsonModule": true, "skipLibCheck": true, "forceConsistentCasingInFileNames": true }, "include": ["src"], "exclude": ["node_modules", ".vscode-test"] }
+{
+    "compilerOptions": {
+      "jsx": "react",
+      "target": "ES2022",
+      "module": "CommonJS",
+      "lib": ["ES2022", "DOM"],
+      "moduleResolution": "node",
+      "outDir": "dist",
+      "rootDir": "./",
+      "sourceMap": true,
+      "strict": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+      
+    },
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "node_modules",
+      ".vscode-test"
+    ]
+  }

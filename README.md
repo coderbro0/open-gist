@@ -1,10 +1,10 @@
-# 📂 Open Gist Folder by ID — VS Code Extension
+# 📂 GistPilot — VS Code Extension
 
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/coderbro.open-gist.svg?label=Open%20in%20VS%20Code&logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)  
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/coderbro.open-gist.svg)](https://marketplace.visualstudio.com/items?itemName=coderbro.open-gist)  
 [![GitHub](https://img.shields.io/badge/@coderbro-%20Follow-blue?logo=github)](https://github.com/coderbro0)
 
-> 📦 **Version**: `v0.0.3` – Now with AI Summarizer (OpenAI & Gemini), Fork & Star Gist, Image Paster, Scratch Notes, Playground Mode and more!
+> 📦 **Version**: `v0.0.4` – Now with Gist QR Sharing, ZIP Import/Export, AI Summarizer, Playground, Star/Fork and more!
 
 ---
 
@@ -21,10 +21,12 @@
 
 ---
 
-### 🆕 v0.0.3 — Power-Boosted Features
+### 🆕 v0.0.4 — New Power Features
 
 | Feature | Description |
 |--------|-------------|
+| 📤 **Share via QR / Shortlink** | Generate a shareable QR code or shortlink for any Gist |
+| 🧳 **Import / Export ZIP** | Export entire Gist as ZIP or import ZIP folder into Gist |
 | 🤖 **AI Summarizer (OpenAI & Gemini)** | Choose between OpenAI or Google Gemini to summarize code (No keys are stored) |
 | 🔁 **Auto-Sync Toggle** | Enable or disable syncing Gist updates on save |
 | ⭐ **Star / Unstar Gist** | Mark Gists as favorite and manage them |
@@ -57,13 +59,13 @@ Creating or editing Gists requires authentication. Follow these steps to create 
 ### 🚀 Adding Token to Extension
 
 1. In VS Code, press `F1`
-2. Run `coderbro: Set GitHub Token`
+2. Run `GistPilot: Set GitHub Token`
 3. Paste the token you created
 
 🔐 Your token is securely saved via VS Code’s SecretStorage.
 
 To remove it:  
-`F1` → `coderbro: Clear GitHub Token`
+`F1` → `GistPilot: Clear GitHub Token`
 
 ---
 
@@ -71,7 +73,7 @@ To remove it:
 
 ### 📂 Open Gist by ID
 
-- Run: `coderbro: Open Gist by ID`  
+- Run: `GistPilot: Open Gist by ID`  
 - Paste your Gist ID (e.g., `abcd12345`)  
 - It will open as a **folder in VS Code**
 
@@ -82,7 +84,7 @@ To remove it:
 ### ✏️ Create a New Gist
 
 - Open any file  
-- Run: `coderbro: Create New Gist`  
+- Run: `GistPilot: Create New Gist`  
 - Enter description + choose Public/Private  
 - Gist is created and ID is copied to your clipboard
 
@@ -90,7 +92,7 @@ To remove it:
 
 ### 📁 Upload a Folder to a Gist
 
-- Run: `coderbro: Upload Folder to Gist`  
+- Run: `GistPilot: Upload Folder to Gist`  
 - Select a folder from your system  
 - Enter the target Gist ID  
 - All files will be uploaded using `...` to simulate folder paths
@@ -99,28 +101,28 @@ To remove it:
 
 ### ➕ Add File to Gist
 
-- Run: `coderbro: Add File to Gist`  
+- Run: `GistPilot: Add File to Gist`  
 - Select file → Enter Gist ID → Done!
 
 ---
 
 ### ➖ Remove File from Gist
 
-- Run: `coderbro: Remove File from Gist`  
+- Run: `GistPilot: Remove File from Gist`  
 - Enter Gist ID and file name (e.g., `src...index.js`)
 
 ---
 
 ### 🗑️ Delete a Gist
 
-- Run: `coderbro: Delete Gist`  
+- Run: `GistPilot: Delete Gist`  
 - Enter Gist ID → Gist is permanently deleted
 
 ---
 
  ### 🤖 AI Summarizer (OpenAI & Gemini)
 
-- Run: `coderbro: Summarize Gist with AI`  
+- Run: `GistPilot: Summarize Gist with AI`  
 - Select your AI provider (OpenAI or Gemini)  
 - The extension uses these optional settings:
   - `open-gist.aiProvider` (default: `openai`)
@@ -153,13 +155,14 @@ To remove it:
 
 ### 🔁 Toggle Auto-Sync
 
-- Run: `coderbro: Toggle Auto Gist Sync`  
+- Run: `GistPilot: Toggle Auto Gist Sync`  
 - This toggles setting: `open-gist.autoSync` in user preferences
 
 ---
 
 ### ⭐ Star / 🍴 Fork Gist
 
+- Run: `GistPilot: Star/Unstar Gist`
 - In **Gist Explorer**, right-click a Gist  
 - Select `Star Gist`, `Unstar Gist`, or `Fork Gist`  
 - Forked Gist opens in a new workspace window
@@ -168,7 +171,7 @@ To remove it:
 
 ### 🧷 Scratch Notes
 
-- Run: `coderbro: Create Scratch Note`  
+- Run: `GistPilot: Create Scratch Note`  
 - Generates a markdown note with timestamp in your scratch Gist
 
 ---
@@ -193,16 +196,35 @@ To remove it:
 
 ### 🌍 Follow GitHub Users
 
-- Run: `coderbro: Follow GitHub User`  
+- Run: `GistPilot: Follow GitHub User`  
 - Explore public Gists from followed users in **Gist Explorer**
 
 ---
 
 ### 🧩 Code Playground (Live Preview)
 
-- Run: `coderbro: Create Code Playground`  
+- Run: `GistPilot: Create Code Playground`  
 - Opens an HTML/CSS/JS/Markdown preview with instant updates  
 - Ideal for quick experiments and sharing via Gists
+
+---
+
+## 📤 Share Gist via QR Code / Shortlink
+
+- Run: `GistPilot: Share Gist as QR`
+- Paste your Gist ID or select an active file
+- A QR image will be shown in the panel and shortlink copied to clipboard
+
+💡 Great for presentations, mobile scanning, quick sharing.
+
+---
+
+## 🧳 Import / Export Gist as ZIP
+
+- Run: `GistPilot: Export Gist to ZIP` → Select Gist ID → ZIP saved to disk
+- Run: `GistPilot: Import Gist from ZIP` → Select ZIP file → Files extracted and pushed to GitHub
+- For Import Feature Github Token is required so first set your github token.
+📁 Folder structure is preserved using `...` convention. Automatically maps filenames.
 
 ---
 

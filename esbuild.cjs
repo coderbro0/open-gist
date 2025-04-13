@@ -1,5 +1,4 @@
-// File: esbuild.cjs
-const esbuild = require("esbuild");
+const esbuild = require('esbuild');
 
 const production = process.argv.includes('--production');
 const watch = process.argv.includes('--watch');
@@ -31,7 +30,8 @@ const esbuildProblemMatcherPlugin = {
 };
 
 async function main() {
-  const ctx = await esbuild.context({
+  // Build the extension
+  const extensionBuild = {
     entryPoints: ['src/extension.ts'],
     bundle: true,
     format: 'cjs',
@@ -44,14 +44,16 @@ async function main() {
     external: ['vscode'],
     logLevel: 'silent',
     plugins: [esbuildProblemMatcherPlugin],
-  });
+  };
 
   if (watch) {
     console.log('[watch] 👀 Watching for file changes...');
-    await ctx.watch();
+    const extensionCtx = await esbuild.context(extensionBuild);
+    await extensionCtx.watch();
+    await webviewCtx.watch();
   } else {
-    await ctx.rebuild();
-    await ctx.dispose();
+    console.log('[build] 🚀 Building...');
+    await esbuild.build(extensionBuild);
     console.log('[build] ✅ Build completed successfully');
   }
 }

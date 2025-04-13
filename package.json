@@ -1,9 +1,9 @@
 {
   "name": "open-gist",
-  "displayName": "Open Gist Folder by ID",
-  "description": "Open, create, and manage GitHub Gists as folders in VS Code. Add or remove files, upload full folders, and simulate folder structures using flattened filenames.",
+  "displayName": "GistPilot",
+  "description": "🚀 GistPilot – AI-powered GitHub Gist co-pilot to open folders by ID, manage snippets, and chat with code inside VS Code.",
   "icon": "icon.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "coderbro",
   "type": "commonjs",
   "repository": {
@@ -17,7 +17,9 @@
   "engines": {
     "vscode": "^1.70.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "main": "./dist/extension.js",
   "activationEvents": [
     "onCommand:open-gist.openGistById",
@@ -36,34 +38,104 @@
     "onCommand:open-gist.launchPlayground",
     "onCommand:open-gist.forkCurrentGist",
     "onCommand:open-gist.starUnstarCurrentGist",
-    "onCommand:open-gist.followGitHubUser"
+    "onCommand:open-gist.followGitHubUser",
+    "onCommand:open-gist.shareGistViaQRCode",
+    "onCommand:open-gist.exportGistAsZip",
+    "onCommand:open-gist.importGistFromZip"
   ],
   "contributes": {
     "commands": [
-      { "command": "open-gist.openGistById", "title": "coderbro: Open Gist by ID" },
-      { "command": "open-gist.createGist", "title": "coderbro: Create New Gist" },
-      { "command": "open-gist.addFileToGist", "title": "coderbro: Add File to Gist" },
-      { "command": "open-gist.addFolderToGist", "title": "coderbro: Upload Folder to Gist" },
-      { "command": "open-gist.deleteGist", "title": "coderbro: Delete Gist" },
-      { "command": "open-gist.removeFileFromGist", "title": "coderbro: Remove File from Gist" },
-      { "command": "open-gist.setGitHubToken", "title": "coderbro: Set GitHub Token" },
-      { "command": "open-gist.clearGitHubToken", "title": "coderbro: Clear GitHub Token" },
-      { "command": "open-gist.summarizeGist", "title": "coderbro: Summarize This Gist" },
-      { "command": "open-gist.exploreGists", "title": "coderbro: Open Gist Explorer" },
-      { "command": "open-gist.toggleAutoSync", "title": "coderbro: Toggle Auto Gist Sync" },
-      { "command": "open-gist.openScratchNote", "title": "coderbro: New Scratch Note" },
-      { "command": "open-gist.pasteImageToGist", "title": "coderbro: Paste Image to Gist" },
-      { "command": "open-gist.launchPlayground", "title": "coderbro: Open Code Playground" },
-      { "command": "open-gist.forkCurrentGist", "title": "coderbro: Fork Current Gist" },
-      { "command": "open-gist.starUnstarCurrentGist", "title": "coderbro: Star/Unstar Gist" },
-      { "command": "open-gist.followGitHubUser", "title": "coderbro: Follow GitHub User" }
+      {
+        "command": "open-gist.openGistById",
+        "title": "GistPilot: Open Gist by ID"
+      },
+      {
+        "command": "open-gist.createGist",
+        "title": "GistPilot: Create New Gist"
+      },
+      {
+        "command": "open-gist.addFileToGist",
+        "title": "GistPilot: Add File to Gist"
+      },
+      {
+        "command": "open-gist.addFolderToGist",
+        "title": "GistPilot: Upload Folder to Gist"
+      },
+      {
+        "command": "open-gist.deleteGist",
+        "title": "GistPilot: Delete Gist"
+      },
+      {
+        "command": "open-gist.removeFileFromGist",
+        "title": "GistPilot: Remove File from Gist"
+      },
+      {
+        "command": "open-gist.setGitHubToken",
+        "title": "GistPilot: Set GitHub Token"
+      },
+      {
+        "command": "open-gist.clearGitHubToken",
+        "title": "GistPilot: Clear GitHub Token"
+      },
+      {
+        "command": "open-gist.summarizeGist",
+        "title": "GistPilot: Summarize This Gist"
+      },
+      {
+        "command": "open-gist.exploreGists",
+        "title": "GistPilot: Open Gist Explorer"
+      },
+      {
+        "command": "open-gist.toggleAutoSync",
+        "title": "GistPilot: Toggle Auto Gist Sync"
+      },
+      {
+        "command": "open-gist.openScratchNote",
+        "title": "GistPilot: New Scratch Note"
+      },
+      {
+        "command": "open-gist.pasteImageToGist",
+        "title": "GistPilot: Paste Image to Gist"
+      },
+      {
+        "command": "open-gist.launchPlayground",
+        "title": "GistPilot: Open Code Playground"
+      },
+      {
+        "command": "open-gist.forkCurrentGist",
+        "title": "GistPilot: Fork Current Gist"
+      },
+      {
+        "command": "open-gist.starUnstarCurrentGist",
+        "title": "GistPilot: Star/Unstar Gist"
+      },
+      {
+        "command": "open-gist.followGitHubUser",
+        "title": "GistPilot: Follow GitHub User"
+      },
+      {
+        "command": "open-gist.shareGistViaQRCode",
+        "title": "GistPilot: Share Gist via QR Code"
+      },
+      {
+        "command": "open-gist.showZipManager",
+        "title": "GistPilot: Open ZIP Manager"
+      },
+      { 
+        "command": "open-gist.exportGistAsZip", 
+        "title": "GistPilot: Export Gist as ZIP" 
+      },
+      { 
+        "command": "open-gist.importGistFromZip", 
+        "title": "GistPilot: Import Gist from ZIP" 
+      }
     ],
     "viewsContainers": {
       "activitybar": [
         {
           "id": "gistExplorerContainer",
           "title": "Gist Explorer",
-          "icon": "media/gist.png"
+          "icon": "media/gist.svg"
         }
       ]
     },
@@ -72,7 +144,7 @@
         {
           "id": "gistExplorerView",
           "name": "Gists",
-          "icon": "media/gist.png"
+          "icon": "media/gist.svg"
         }
       ]
     },
@@ -87,7 +159,10 @@
         "open-gist.aiProvider": {
           "type": "string",
           "default": "openai",
-          "enum": ["openai", "gemini"],
+          "enum": [
+            "openai",
+            "gemini"
+          ],
           "description": "Choose AI provider for code summarization (OpenAI or Google Gemini)."
         },
         "open-gist.openaiApiKey": {
@@ -128,7 +203,23 @@
     "scratch notes",
     "star gist",
     "fork gist",
-    "follow user"
+    "follow user",
+    "ai chatbot",
+    "code assistant",
+    "inline suggestion",
+    "webview chatbot",
+    "gemini copilot",
+    "slash commands",
+    "fix code",
+    "refactor code",
+    "generate tests",
+    "convert code",
+    "streaming ai",
+    "token tracker",
+    "workspace ai",
+    "zip manager",
+    "qr code",
+    "share gist"
   ],
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -142,20 +233,34 @@
     "test": "vscode-test"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "adm-zip": "^0.5.16",
+    "dotenv": "^16.5.0",
+    "node-fetch": "^3.3.2",
+    "qrcode": "^1.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
     "@types/mocha": "^10.0.10",
     "@types/node": "^20.17.30",
     "@types/node-fetch": "^2.6.12",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.1.1",
+    "@types/react-dom": "^19.1.2",
     "@types/vscode": "^1.70.0",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
+    "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.2",
     "eslint": "^9.24.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.3",
     "typescript": "^5.8.3"
   }
 }

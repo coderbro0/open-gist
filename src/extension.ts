@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs/promises';
-
 import { registerGistExplorer } from './explorerView';
 import { summarizeActiveFile } from './aiSummarizer';
 import { registerAutoSync } from './gistSync';
@@ -12,7 +11,8 @@ import { launchPlayground } from './playground';
 import { forkCurrentGist } from './forkGist';
 import { starUnstarCurrentGist } from './starGist';
 import { followGitHubUser } from './followUserGists';
-
+import { shareGistViaQRCode } from './qr/shareGistQRCode';
+import { registerZipCommands } from './zipManager';
 const GITHUB_API = 'https://api.github.com';
 
 // --- Token Helpers ---
@@ -89,13 +89,16 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('open-gist.launchPlayground', () => launchPlayground(context)),
     vscode.commands.registerCommand('open-gist.forkCurrentGist', () => forkCurrentGist(context)),
     vscode.commands.registerCommand('open-gist.starUnstarCurrentGist', () => starUnstarCurrentGist(context)),
-    vscode.commands.registerCommand('open-gist.followGitHubUser', () => followGitHubUser(context))
+    vscode.commands.registerCommand('open-gist.followGitHubUser', () => followGitHubUser(context)),
+    // Command to share Gist via QR Code
+    vscode.commands.registerCommand('open-gist.shareGistViaQRCode', () => shareGistViaQRCode())
   );
 
+  // Register additional features
+  registerZipCommands(context);
   registerGistExplorer(context);
   registerAutoSync(context);
 }
-
 
 async function openGistById(context: vscode.ExtensionContext) {
   const gistId = await vscode.window.showInputBox({ prompt: 'Enter GitHub Gist ID' });
@@ -289,3 +292,7 @@ async function removeFileFromGist(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {}
+function activateChatbot(context: vscode.ExtensionContext) {
+  throw new Error('Function not implemented.');
+}
+
